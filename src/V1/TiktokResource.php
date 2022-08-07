@@ -49,7 +49,7 @@ abstract class TiktokResource
      */
     public function api($childResources)
     {
-        $this->childResources = sprintf('/%s', $childResources);
+        $this->childResources = $childResources;
         return $this;
     }
 

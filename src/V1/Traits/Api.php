@@ -252,7 +252,7 @@ trait Api
      */
     protected function generateUrl()
     {
-        $this->uri = $this->parentResource . $this->childResources;
+        $this->uri = strpos($this->childResources, '/') === 0? $this->childResources: $this->parentResource . '/' . $this->childResources;
         $this->url = $this->tiktokSDK->config['tiktokUrl'];
         $this->timestamp = time();
         $this->setApiCommonParameters();

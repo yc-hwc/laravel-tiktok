@@ -37,3 +37,21 @@ composer require yc-hwc/laravel-tiktok
                 ->fullUrl()
         ];
 ````
+#### [获取订单列表](https://developers.tiktok-shops.com/documents/document/237434)
+````
+$config = [
+    'tiktokUrl'   => '',
+    'appKey'      => '',
+    'appSecret'   => '',
+    'accessToken' => '',
+    'shopId'      => ''
+];
+$tiktokSDK = TiktokSDK::config($config);
+$response = $tiktokSDK->order()->api('/api/orders/search')
+    ->withBody([
+        'page_size' => 20,
+    ])->post();
+print_r($response);
+
+tips: /开头为绝对路径uri,不是/开头为相对路径uri,建议使用绝对路径uri
+````
