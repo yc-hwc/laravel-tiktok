@@ -26,7 +26,7 @@ composer require yc-hwc/laravel-tiktok
         $config = [
             'tiktokUrl'  => '',
         ];
-        $tiktokSDK = TiktokSDK::config($config);
+        $tiktokSDK = \PHPTiktok\TiktokSDK::config($config);
 
         return [
             'redirectUrl' => $tiktokSDK->oauth()->api('authorize')
@@ -46,7 +46,7 @@ $config = [
     'accessToken' => '',
     'shopId'      => ''
 ];
-$tiktokSDK = TiktokSDK::config($config);
+$tiktokSDK = \PHPTiktok\TiktokSDK::config($config);
 $response = $tiktokSDK->order()->api('/api/orders/search')
     ->withBody([
         'page_size' => 20,
