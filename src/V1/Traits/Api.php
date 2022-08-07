@@ -15,9 +15,9 @@ trait Api
 
     public $fullUrl;
 
-    protected $queryString;
+    protected $queryString = [];
 
-    protected $commonQueryString;
+    protected $commonQueryString = [];
 
     protected $timestamp;
 
@@ -271,11 +271,13 @@ trait Api
         $signArr = array_filter(array_merge($this->queryString, [
             'app_key'   => $tiktokSDK->config['appKey'],
             'timestamp' => $this->timestamp,
+            'shop_id'   => $tiktokSDK->config['shopId'],
         ]));
 
         uksort($signArr, 'strcmp');
 
-        $signStr = sprintf('%s%s', ...[
+        $signStr = sprintf('%s%s%s%s', ...[
+            $tiktokSDK->config['appSecret'],
             $this->uri,
             (function ($signArr) {
                 $signStr = '';
@@ -285,15 +287,16 @@ trait Api
 
                 return $signStr;
             })($signArr),
+            $tiktokSDK->config['appSecret']
         ]);
 
-        $this->commonQueryString = [
+        $this->commonQueryString = array_filter([
             'app_key'      => $tiktokSDK->config['appKey'],
             'timestamp'    => $this->timestamp,
             'access_token' => $tiktokSDK->config['accessToken'],
             'shop_id'      => $tiktokSDK->config['shopId'],
             'sign'         => $this->generateSign($signStr, $tiktokSDK->config['appSecret']),
-        ];
+        ]);
     }
 
     /**

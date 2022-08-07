@@ -3,11 +3,11 @@
 
 namespace PHPTiktok\V1;
 
-use PHPTiktok\V1\Traits\ShopApi;
+use PHPTiktok\V1\Traits\TokenApi;
 
 class Oauth extends TiktokResource
 {
-    use ShopApi;
+    use TokenApi;
 
     protected $parentResource = '/oauth';
 }
