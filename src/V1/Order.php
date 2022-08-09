@@ -9,5 +9,5 @@ class Order extends TiktokResource
 {
     use ShopApi;
 
-    protected $parentResource = '/api/order';
+    protected $parentResource = '/api/orders';
 }
