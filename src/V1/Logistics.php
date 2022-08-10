@@ -4,11 +4,11 @@
 namespace PHPTiktok\V1;
 
 
-use PHPTiktok\V1\Traits\PublicApi;
+use PHPTiktok\V1\Traits\ShopApi;
 
 class Logistics extends TiktokResource
 {
-    use PublicApi;
+    use ShopApi;
 
     protected $parentResource = '/api/logistics';
 }

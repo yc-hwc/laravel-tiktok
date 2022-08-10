@@ -3,11 +3,11 @@
 
 namespace PHPTiktok\V1;
 
-use PHPTiktok\V1\Traits\PartnerApi;
+use PHPTiktok\V1\Traits\ShopApi;
 
 class Reverse extends TiktokResource
 {
-    use PartnerApi;
+    use ShopApi;
 
     protected $parentResource = '/api/reverse';
 }
