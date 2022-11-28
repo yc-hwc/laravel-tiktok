@@ -268,11 +268,11 @@ trait Api
     {
         $tiktokSDK = &$this->tiktokSDK;
 
-        $signArr = array_filter(array_merge($this->queryString, [
+        $signArr = array_merge($this->queryString, [
             'app_key'   => $tiktokSDK->config['appKey'],
             'timestamp' => $this->timestamp,
             'shop_id'   => $tiktokSDK->config['shopId'],
-        ]));
+        ]);
 
         uksort($signArr, 'strcmp');
 
