@@ -186,6 +186,17 @@ trait Api
 
     /**
      * @Author: hwj
+     * @DateTime: 2022/12/13 11:00
+     * @return array|mixed
+     * @throws RequestException
+     */
+    public function put()
+    {
+        return $this->setRequestMethod('put')->run();
+    }
+
+    /**
+     * @Author: hwj
      * @DateTime: 2022/4/20 17:49
      * @return array|mixed
      * @throws RequestException
@@ -199,7 +210,7 @@ trait Api
      * @Author: hwj
      * @DateTime: 2022/4/20 17:49
      * @return array|mixed
-     * @throws RequestException\
+     * @throws RequestException
      */
     public function run()
     {
@@ -207,6 +218,7 @@ trait Api
         $response = match ($this->requestMethod) {
             'get'  => $this->httpClient()->get($resource),
             'post' => $this->httpClient()->post($resource),
+            'put'  => $this->httpClient()->put($resource),
         };
 
         $this->setResponse($response);
