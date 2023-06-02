@@ -56,6 +56,7 @@ class TiktokSDK
         'apiVersion'  => '',
         'accessToken' => '',
         'shopId'      => '',
+        'shopCipher'  => '',
     ];
 
     public function __construct($config)

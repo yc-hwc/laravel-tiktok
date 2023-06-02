@@ -17,6 +17,7 @@ composer require yc-hwc/laravel-tiktok
         'appSecret'   => '',
         'accessToken' => '',
         'shopId'      => '',
+        'shopCipher'  => '',
     ];
     
     $tiktokSDK = \PHPTiktok\TiktokSDK::config($config);
@@ -44,7 +45,8 @@ $config = [
     'appKey'      => '',
     'appSecret'   => '',
     'accessToken' => '',
-    'shopId'      => ''
+    'shopId'      => '',
+    'shopCipher'  => '',
 ];
 $tiktokSDK = \PHPTiktok\TiktokSDK::config($config);
 $response = $tiktokSDK->order()->api('/api/orders/search')

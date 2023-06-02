@@ -281,9 +281,10 @@ trait Api
         $tiktokSDK = &$this->tiktokSDK;
 
         $signArr = array_merge($this->queryString, array_filter([
-            'app_key'   => $tiktokSDK->config['appKey'],
-            'timestamp' => $this->timestamp,
-            'shop_id'   => $tiktokSDK->config['shopId'],
+            'app_key'     => $tiktokSDK->config['appKey'],
+            'timestamp'   => $this->timestamp,
+            'shop_id'     => $tiktokSDK->config['shopId'],
+            'shop_cipher' => $tiktokSDK->config['shopCipher'],
         ]));
 
         uksort($signArr, 'strcmp');
@@ -307,6 +308,7 @@ trait Api
             'timestamp'    => $this->timestamp,
             'access_token' => $tiktokSDK->config['accessToken'],
             'shop_id'      => $tiktokSDK->config['shopId'],
+            'shop_cipher'  => $tiktokSDK->config['shopCipher'],
             'sign'         => $this->generateSign($signStr, $tiktokSDK->config['appSecret']),
         ]);
     }
