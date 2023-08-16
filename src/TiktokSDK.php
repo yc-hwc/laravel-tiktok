@@ -3,7 +3,7 @@
 namespace PHPTiktok;
 
 use PHPTiktok\Exception\SdkException;
-use PHPTiktok\V1\{Shop,Token, Oauth, Seller,Reverse,GlobalProduct,Product,Order,Logistics,Finance,Fulfillment};
+use PHPTiktok\V1\{Shop,Token, Oauth, Seller,Reverse,GlobalProduct,Product,Order,Logistics,Finance,Fulfillment,Supplychain};
 
 /**
  * @property-read Seller $seller
@@ -17,6 +17,7 @@ use PHPTiktok\V1\{Shop,Token, Oauth, Seller,Reverse,GlobalProduct,Product,Order,
  * @property-read Logistics $logistics
  * @property-read Finance $finance
  * @property-read Fulfillment $fulfillment
+ * @property-read Supplychain $supplychain
  *
  * @method Shop shop()
  * @method Token token()
@@ -29,6 +30,7 @@ use PHPTiktok\V1\{Shop,Token, Oauth, Seller,Reverse,GlobalProduct,Product,Order,
  * @method Finance finance()
  * @method Fulfillment fulfillment()
  * @method Seller seller()
+ * @method Supplychain supplychain()
  */
 class TiktokSDK
 {
@@ -46,7 +48,8 @@ class TiktokSDK
         'logistics',
         'finance',
         'fulfillment',
-        'seller'
+        'seller',
+        'supplychain'
     ];
 
     public $config = [
