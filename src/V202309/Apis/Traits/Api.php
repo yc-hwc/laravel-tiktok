@@ -179,6 +179,7 @@ trait Api
      */
     public function post()
     {
+        $this->body = $this->body ?: json_encode([]);
         return $this->setRequestMethod('post')->run();
     }
 
