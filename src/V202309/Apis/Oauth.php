@@ -4,7 +4,7 @@
 namespace PHPTiktok\V202309\Apis;
 
 
-use PHPTiktok\V202309\Apis\Traits\ShopApi;
+use PHPTiktok\V202309\Apis\Traits\TokenApi;
 
 class Oauth extends TiktokResource
 {
